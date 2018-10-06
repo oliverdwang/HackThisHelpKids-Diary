@@ -16,37 +16,66 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>    
 </head>
 <body>
-	<div class="header">
-		<h1>Synoptica</h1>
+	<div>
+		<h1 class="header">Synoptica</h1>
 	</div>
 	<div class="patientInfo row">
 		<img src="{{pfp}}" class="col-sm-3">
-		<div class="col-sm-3">
+		<div class="col-sm-2">
 			<h1>Information</h1>
 			<p>Name: {{name}}</p>
 			<p>Age: {{age}}</p>
 			<p>Symptoms: {{symptoms}}</p>
+			<p>Medications: {{medication}}</p>
 		</div>
-		<div class="col-sm-6">
+		<div class="col-sm-2">
 			<h1>Statistics</h1>
+			<p>Average Score: {{average}}</p>
 			<p>Overall Mood: Happy</p>
-			<p>Past 7 Days: {{score}}</p>
 		</div>
+		<iframe src="https://plot.ly/~jyoungk/0.embed" class="col-sm-3" frameborder="0" class="graph"></iframe>
+	</div>
+	<h1>VDiary Data</h1>
+	<div class="entryDiv row">
+		{{{squares}}}
 	</div>
 </body>
 </html>
 
 <style type="text/css">
 	body: {
-		margin: 0;
-		padding: 0;
-		font-size: 0;
+		margin:  1em;
+		padding: 1em;
+		font-size: 12;
+		overflow: hidden;
 	}
 	.header: {
-
+		font-size: 2em;
+		margin-left: 2vw;
+		background-color: red;
+		color: white;
 	}
 	.patientInfo {
 
+	}
+	.entryDiv {
+		width: 100%;
+	}
+	.dateEntry {
+		text-align: center;
+	}
+	.dateHeader {
+		border-top:;
+		border-bottom:;
+	}
+	.green {
+		color: green;
+	}
+	.red {
+		color: red;
+	}
+	.graph {
+		width: 100%;
 	}
 
 
@@ -58,4 +87,5 @@
     	console.log("asdsa");
     	socket.emit('henlo');
     }
+
 </script>

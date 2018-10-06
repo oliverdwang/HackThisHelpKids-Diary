@@ -2,12 +2,13 @@
 <html>
 <head>
 	<title></title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>   
 </head>
 <body>
 	<h1>Synoptica Dashboard</h1>
 	<div>
 		<div >
-			
+			{{{members}}}
 		</div>
 	</div>
 </body>
@@ -21,6 +22,10 @@
 	}
 </style>
 
-<script type="text/javascript">
-	
+<script>
+	var socket = io();
+    function generateProfile(a) {
+    	socket.emit('generate', {data: a});
+    }
+
 </script>
