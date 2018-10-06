@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Patient Information</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
 	<!-- jQuery library -->
@@ -12,6 +12,8 @@
 
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>    
 </head>
 <body>
 	<div class="header">
@@ -30,12 +32,6 @@
 			<p>Overall Mood: Happy</p>
 			<p>Past 7 Days: {{score}}</p>
 		</div>
-		
-	</div>
-		
-
-	<div class="calendar">
-		
 	</div>
 </body>
 </html>
@@ -56,7 +52,10 @@
 
 </style>
 
-<script type="text/javascript">
-	var date = new Date();
-
+<script>
+	var socket = io();
+    function get() {
+    	console.log("asdsa");
+    	socket.emit('henlo');
+    }
 </script>
