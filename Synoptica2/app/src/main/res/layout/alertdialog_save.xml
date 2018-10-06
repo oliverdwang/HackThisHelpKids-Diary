@@ -26,12 +26,11 @@
                 android:text="Video URI:"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-            <EditText
+            <TextView
                 android:id="@+id/editText_URI"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName" />
+                android:ems="10" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -40,12 +39,11 @@
                 android:text="Date: (MM/DD/YYYY)"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-            <EditText
+            <TextView
                 android:id="@+id/editText_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="date" />
+                android:ems="10" />
 
             <TextView
                 android:id="@+id/textView5"

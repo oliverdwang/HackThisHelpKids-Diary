@@ -40,11 +40,39 @@
       <file leaf-file-name="CaptureFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/oliverdwang/synoptica2/CaptureFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="767" column="35" selection-start-line="767" selection-start-column="35" selection-end-line="767" selection-end-column="35" />
+            <state relative-caret-position="272">
+              <caret line="765" column="48" selection-start-line="765" selection-start-column="48" selection-end-line="765" selection-end-column="48" />
               <folding>
-                <element signature="e#29528#29567#0" expanded="true" />
+                <element signature="e#13003#13041#0" expanded="true" />
+                <element signature="e#13258#13296#0" expanded="true" />
+                <element signature="e#13950#13988#0" expanded="true" />
+                <element signature="e#24454#24870#0" expanded="true" />
+                <element signature="e#24869#24870#0" expanded="true" />
+                <element signature="e#27524#30318#0" expanded="true" />
+                <element signature="e#29664#29703#0" expanded="true" />
+                <element signature="e#30317#30318#0" expanded="true" />
+                <element signature="e#30365#30593#0" expanded="true" />
+                <element signature="e#30592#30593#0" expanded="true" />
+                <element signature="e#32069#32323#0" expanded="true" />
+                <element signature="e#32322#32323#0" expanded="true" />
+                <element signature="e#32674#32701#0" expanded="true" />
+                <element signature="e#32763#33118#0" expanded="true" />
+                <element signature="e#33117#33118#0" expanded="true" />
+                <element signature="e#33212#33513#0" expanded="true" />
+                <element signature="e#33512#33513#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="alertdialog_save.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alertdialog_save.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -62,7 +90,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/oliverdwang/synoptica2/logEntry.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1785">
-              <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
+              <caret line="131" selection-start-line="131" selection-end-line="131" />
               <folding>
                 <element signature="e#2584#2585#0" expanded="true" />
                 <element signature="e#2610#2611#0" expanded="true" />
@@ -2366,9 +2394,9 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/alertdialog_save.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/oliverdwang/synoptica2/logEntry.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/oliverdwang/synoptica2/logDatabaseHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/alertdialog_save.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/oliverdwang/synoptica2/CaptureFragment.java" />
       </list>
     </option>
@@ -2404,6 +2432,17 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="synoptica2" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Synoptica2" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="Synoptica2" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="Synoptica2" type="1abcf292:AndroidViewProjectNode" />
@@ -2564,14 +2603,15 @@
       <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Preview" order="3" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Logcat" order="7" visible="true" weight="0.23988006" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="7" visible="true" weight="0.3988006" />
       <window_info id="Captures" order="2" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1698379" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1698379" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.29085457" />
       <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -2579,7 +2619,6 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
-      <window_info anchor="right" id="Preview" order="3" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -2621,7 +2660,6 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_history.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
     <entry file="file://$PROJECT_DIR$/app/build.gradle" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alertdialog_save.xml" />
     <entry file="file://$PROJECT_DIR$/Synoptica2.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state />
@@ -2630,7 +2668,7 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/oliverdwang/synoptica2/logEntry.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1785">
-          <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
           <folding>
             <element signature="e#2584#2585#0" expanded="true" />
             <element signature="e#2610#2611#0" expanded="true" />
@@ -2647,12 +2685,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/alertdialog_save.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/oliverdwang/synoptica2/CaptureFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="767" column="35" selection-start-line="767" selection-start-column="35" selection-end-line="767" selection-end-column="35" />
+        <state relative-caret-position="272">
+          <caret line="765" column="48" selection-start-line="765" selection-start-column="48" selection-end-line="765" selection-end-column="48" />
           <folding>
-            <element signature="e#29528#29567#0" expanded="true" />
+            <element signature="e#13003#13041#0" expanded="true" />
+            <element signature="e#13258#13296#0" expanded="true" />
+            <element signature="e#13950#13988#0" expanded="true" />
+            <element signature="e#24454#24870#0" expanded="true" />
+            <element signature="e#24869#24870#0" expanded="true" />
+            <element signature="e#27524#30318#0" expanded="true" />
+            <element signature="e#29664#29703#0" expanded="true" />
+            <element signature="e#30317#30318#0" expanded="true" />
+            <element signature="e#30365#30593#0" expanded="true" />
+            <element signature="e#30592#30593#0" expanded="true" />
+            <element signature="e#32069#32323#0" expanded="true" />
+            <element signature="e#32322#32323#0" expanded="true" />
+            <element signature="e#32674#32701#0" expanded="true" />
+            <element signature="e#32763#33118#0" expanded="true" />
+            <element signature="e#33117#33118#0" expanded="true" />
+            <element signature="e#33212#33513#0" expanded="true" />
+            <element signature="e#33512#33513#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -42,6 +42,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -59,8 +60,8 @@ import java.util.concurrent.TimeUnit;
 
 public class CaptureFragment extends Fragment implements View.OnClickListener, FragmentCompat.OnRequestPermissionsResultCallback {
 
-    private static EditText URI;
-    private  static EditText Date;
+    private static TextView URI;
+    private  static TextView Date;
     private static RadioGroup RdBtnGrp;
 
     private static final int SENSOR_ORIENTATION_DEFAULT_DEGREES = 90;
@@ -714,7 +715,6 @@ public class CaptureFragment extends Fragment implements View.OnClickListener, F
         final int month = calendar.get(Calendar.MONTH)+1;
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         int year = calendar.get(Calendar.YEAR);
-        String prompt = getResources().getText(R.string.prompt).toString();
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         builder.setTitle("Log Entry");
@@ -724,48 +724,46 @@ public class CaptureFragment extends Fragment implements View.OnClickListener, F
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String[] dateInput = Date.toString().split(".*//.*");
-                        int monthInput = Integer.valueOf(dateInput[0]);
-                        int dayInput = Integer.valueOf(dateInput[1]);
-                        int yearInput = Integer.valueOf(dateInput[2]);
-                        String uri = URI.getText().toString();
-
                         int radioButtonID = RdBtnGrp.getCheckedRadioButtonId();
                         View radioButton = RdBtnGrp.findViewById(radioButtonID);
                         int mood = RdBtnGrp.indexOfChild(radioButton);
 
                         Calendar calendar = Calendar.getInstance();
-                        int dayWeek1 = calendar.get(Calendar.DAY_OF_WEEK);
-                        String dayOfWeek1 = "";
-                        switch(dayWeek1) {
+                        int dayWeek = calendar.get(Calendar.DAY_OF_WEEK);
+                        String dayOfWeek = "";
+                        switch(dayWeek) {
                             case Calendar.SUNDAY:
-                                dayOfWeek1 = "Sunday";
+                                dayOfWeek = "Sunday";
                             case Calendar.MONDAY:
-                                dayOfWeek1 = "Monday";
+                                dayOfWeek = "Monday";
                             case Calendar.TUESDAY:
-                                dayOfWeek1 = "Tuesday";
+                                dayOfWeek = "Tuesday";
                             case Calendar.WEDNESDAY:
-                                dayOfWeek1 = "Wednesday";
+                                dayOfWeek = "Wednesday";
                             case Calendar.THURSDAY:
-                                dayOfWeek1 = "Thursday";
+                                dayOfWeek = "Thursday";
                             case Calendar.FRIDAY:
-                                dayOfWeek1 = "Friday";
+                                dayOfWeek = "Friday";
                             case Calendar.SATURDAY:
-                                dayOfWeek1 = "Saturday";
+                                dayOfWeek = "Saturday";
                         }
+                        int month = calendar.get(Calendar.MONTH)+1;
+                        int day = calendar.get(Calendar.DAY_OF_MONTH);
+                        int year = calendar.get(Calendar.YEAR);
 
+                        String uriReal = URI.getText().toString();
                         logDatabaseHelper dbHelper = logDatabaseHelper.getInstance(getContext());
-                        dbHelper.insertLog(dayOfWeek1,monthInput,dayInput,yearInput,getResources().getText(R.string.prompt).toString(),mood, uri);
+                        dbHelper.insertLog(dayOfWeek,month,day,year,getResources().getText(R.string.prompt).toString(),mood, uriReal);
 
                         //Send everything to firebase
                         /*
-                            String dayOfWeek = dayOfWeek1;
-                            Int month = monthInput;
-                            Int day = dayInput;
-                            Int year = yearInput;
+                            String dayOfWeek = dayOfWeek;
+                            Int month = month;
+                            Int day = day;
+                            Int year = year;
                             String prompt = getResources().getText(R.string.prompt).toString();
                             Int mood = mood;
-                            String uri = uri;
+                            String uri = uriReal;
                          */
                         //do your stuff here
 
