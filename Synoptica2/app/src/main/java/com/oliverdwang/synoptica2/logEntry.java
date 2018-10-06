@@ -2,7 +2,7 @@ package com.oliverdwang.synoptica2;
 
 public class logEntry {
 
-    public static final String TABLE_NAME = "logs";
+    public static final String TABLE_NAME = "logsV1";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_DAYOFWEEK = "dayOfWeek";
     public static final String COLUMN_MONTH = "month";
@@ -38,7 +38,7 @@ public class logEntry {
                     + COLUMN_DAY + " INTEGER,"
                     + COLUMN_YEAR + " INTEGER,"
                     + COLUMN_PROMPT + " TEXT,"
-                    + COLUMN_MOOD + " TEXT"
+                    + COLUMN_MOOD + " TEXT,"
                     + COLUMN_URI + " TEXT"
                     + ")";
 
@@ -51,6 +51,10 @@ public class logEntry {
         prompt="";
         mood=-1;
         uri="";
+    }
+
+    public String toString() {
+        return "Id=" + id + " dayOfWeek=" + dayOfWeek + " month=" + month + " day=" + day + " year=" + year + " prompt=" + prompt + " mood=" + mood + " uri=" + uri;
     }
 
     public logEntry(int id, String dayOfWeek, int month, int day, int year, String prompt, int mood, String uri) {

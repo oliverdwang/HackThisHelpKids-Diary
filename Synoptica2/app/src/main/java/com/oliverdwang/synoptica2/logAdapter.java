@@ -1,5 +1,6 @@
 package com.oliverdwang.synoptica2;
 
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +35,7 @@ public class logAdapter extends RecyclerView.Adapter<logAdapter.logViewHolder> {
 
     public logViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.log_entry, parent, false);
+
 
         return new logViewHolder(itemView);
     }

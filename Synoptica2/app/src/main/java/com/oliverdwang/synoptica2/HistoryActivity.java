@@ -4,13 +4,17 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.ButtonBarLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,16 +26,34 @@ public class HistoryActivity extends AppCompatActivity {
     private logAdapter mAdapter;
     private List<logEntry> logList = new ArrayList<>();
 
+    private Button refresh;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
-        Toolbar toolbar = findViewById(R.id.toolbar2);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = findViewById(R.id.toolbar2);
+        //setSupportActionBar(toolbar);
 
         logListRecycler = findViewById(R.id.list);
         logListRecycler.setHasFixedSize(true);
+
+        refresh = findViewById(R.id.button_refresh);
+        refresh.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logDatabaseHelper dbHelper = logDatabaseHelper.getInstance(getApplicationContext());
+                logList.clear();
+                logList = dbHelper.getAllLogs();
+                for(int i = 0; i < logList.size(); i++) {
+                    Log.v("logList", logList.get(i).toString());
+                }
+                dbHelper.close();
+
+                mAdapter.notifyDataSetChanged();
+            }
+        });
 
         mAdapter = new logAdapter(logList);
         mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -41,8 +63,11 @@ public class HistoryActivity extends AppCompatActivity {
         logListRecycler.setAdapter(mAdapter);
 
         logDatabaseHelper dbHelper = logDatabaseHelper.getInstance(this);
-
+        logList.clear();
         logList = dbHelper.getAllLogs();
+        for(int i = 0; i < logList.size(); i++) {
+            Log.v("logList", logList.get(i).toString());
+        }
         dbHelper.close();
 
         mAdapter.notifyDataSetChanged();
