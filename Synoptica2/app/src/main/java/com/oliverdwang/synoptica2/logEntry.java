@@ -10,6 +10,7 @@ public class logEntry {
     public static final String COLUMN_YEAR = "year";
     public static final String COLUMN_PROMPT = "prompt";
     public static final String COLUMN_MOOD = "mood";
+    public static final String COLUMN_URI = "uri";
 
 
     private int id;
@@ -27,6 +28,7 @@ public class logEntry {
     3=good
     4=great
      */
+    private String uri;
 
     public static final String CREATE_TABLE =
             "CREATE TABLE " + TABLE_NAME + "("
@@ -37,6 +39,7 @@ public class logEntry {
                     + COLUMN_YEAR + " INTEGER,"
                     + COLUMN_PROMPT + " TEXT,"
                     + COLUMN_MOOD + " TEXT"
+                    + COLUMN_URI + " TEXT"
                     + ")";
 
     public logEntry() {
@@ -47,9 +50,10 @@ public class logEntry {
         year=-1;
         prompt="";
         mood=-1;
+        uri="";
     }
 
-    public logEntry(int id, String dayOfWeek, int month, int day, int year, String prompt, int mood) {
+    public logEntry(int id, String dayOfWeek, int month, int day, int year, String prompt, int mood, String uri) {
         this.id = id;
         this.dayOfWeek = dayOfWeek;
         this.month = month;
@@ -57,15 +61,17 @@ public class logEntry {
         this.year = year;
         this.prompt = prompt;
         this.mood = mood;
+        this.uri = uri;
     }
 
-    public logEntry(String dayOfWeek, int month, int day, int year, String prompt, int mood) {
+    public logEntry(String dayOfWeek, int month, int day, int year, String prompt, int mood, String uri) {
         this.dayOfWeek = dayOfWeek;
         this.month = month;
         this.day = day;
         this.year = year;
         this.prompt = prompt;
         this.mood = mood;
+        this.uri = uri;
     }
 
     public int getId() {
@@ -96,6 +102,10 @@ public class logEntry {
         return mood;
     }
 
+    public String getUri() {
+        return uri;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -122,5 +132,9 @@ public class logEntry {
 
     public void setMood(int mood) {
         this.mood = mood;
+    }
+
+    public void setUri(String uri) {
+        this.uri = uri;
     }
 }

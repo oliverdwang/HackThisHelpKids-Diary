@@ -48,7 +48,7 @@ public class logDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public long insertLog(String dayOfWeek, int month, int day, int year, String prompt, int mood) {
+    public long insertLog(String dayOfWeek, int month, int day, int year, String prompt, int mood, String uri) {
         // get writable database as we want to write data
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -60,6 +60,7 @@ public class logDatabaseHelper extends SQLiteOpenHelper {
         values.put(logEntry.COLUMN_YEAR, year);
         values.put(logEntry.COLUMN_PROMPT, prompt);
         values.put(logEntry.COLUMN_MOOD, mood);
+        values.put(logEntry.COLUMN_URI, uri);
 
         // insert row
         long id = db.insert(logEntry.TABLE_NAME, null, values);
@@ -76,7 +77,7 @@ public class logDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(logEntry.TABLE_NAME,
-                new String[]{logEntry.COLUMN_ID, logEntry.COLUMN_DAYOFWEEK, logEntry.COLUMN_MONTH, logEntry.COLUMN_DAY, logEntry.COLUMN_YEAR, logEntry.COLUMN_PROMPT, logEntry.COLUMN_MOOD},
+                new String[]{logEntry.COLUMN_ID, logEntry.COLUMN_DAYOFWEEK, logEntry.COLUMN_MONTH, logEntry.COLUMN_DAY, logEntry.COLUMN_YEAR, logEntry.COLUMN_PROMPT, logEntry.COLUMN_MOOD, logEntry.COLUMN_URI},
                 logEntry.COLUMN_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
 
@@ -91,6 +92,7 @@ public class logDatabaseHelper extends SQLiteOpenHelper {
         log.setYear(cursor.getInt(cursor.getColumnIndex(log.COLUMN_YEAR)));
         log.setPrompt(cursor.getString(cursor.getColumnIndex(log.COLUMN_PROMPT)));
         log.setMood(cursor.getInt(cursor.getColumnIndex(log.COLUMN_MOOD)));
+        log.setUri(cursor.getString(cursor.getColumnIndex(log.COLUMN_URI)));
 
         // close the db connection
         cursor.close();
@@ -118,6 +120,7 @@ public class logDatabaseHelper extends SQLiteOpenHelper {
                 log.setYear(cursor.getInt(cursor.getColumnIndex(logEntry.COLUMN_YEAR)));
                 log.setPrompt(cursor.getString(cursor.getColumnIndex(logEntry.COLUMN_PROMPT)));
                 log.setMood(cursor.getInt(cursor.getColumnIndex(logEntry.COLUMN_MOOD)));
+                log.setUri(cursor.getString(cursor.getColumnIndex(logEntry.COLUMN_URI)));
 
                 logs.add(log);
             } while (cursor.moveToNext());

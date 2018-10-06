@@ -724,10 +724,11 @@ public class CaptureFragment extends Fragment implements View.OnClickListener, F
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String[] dateInput = Date.toString().split("/");
+                        String[] dateInput = Date.toString().split(".*//.*");
                         int monthInput = Integer.valueOf(dateInput[0]);
                         int dayInput = Integer.valueOf(dateInput[1]);
                         int yearInput = Integer.valueOf(dateInput[2]);
+                        String uri = URI.getText().toString();
 
                         int radioButtonID = RdBtnGrp.getCheckedRadioButtonId();
                         View radioButton = RdBtnGrp.findViewById(radioButtonID);
@@ -754,7 +755,20 @@ public class CaptureFragment extends Fragment implements View.OnClickListener, F
                         }
 
                         logDatabaseHelper dbHelper = logDatabaseHelper.getInstance(getContext());
-                        dbHelper.insertLog(dayOfWeek1,monthInput,dayInput,yearInput,getResources().getText(R.string.prompt).toString(),mood);
+                        dbHelper.insertLog(dayOfWeek1,monthInput,dayInput,yearInput,getResources().getText(R.string.prompt).toString(),mood, uri);
+
+                        //Send everything to firebase
+                        /*
+                            String dayOfWeek = dayOfWeek1;
+                            Int month = monthInput;
+                            Int day = dayInput;
+                            Int year = yearInput;
+                            String prompt = getResources().getText(R.string.prompt).toString();
+                            Int mood = mood;
+                            String uri = uri;
+                         */
+                        //do your stuff here
+
                     }
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
