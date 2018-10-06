@@ -20,6 +20,7 @@ import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.MediaRecorder;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -38,6 +39,7 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.io.File;
@@ -49,14 +51,7 @@ import java.util.concurrent.Semaphore;
 import java.util.Comparator;
 import java.util.concurrent.TimeUnit;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link CaptureFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link CaptureFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class CaptureFragment extends Fragment implements View.OnClickListener, ActivityCompat.OnRequestPermissionsResultCallback {
 
     private static final int SENSOR_ORIENTATION_DEFAULT_DEGREES = 90;
@@ -64,7 +59,7 @@ public class CaptureFragment extends Fragment implements View.OnClickListener, A
     private static final SparseIntArray DEFAULT_ORIENTATIONS = new SparseIntArray();
     private static final SparseIntArray INVERSE_ORIENTATIONS = new SparseIntArray();
 
-    private static final String TAG = "Camera2VideoFragment";
+    private static final String TAG = "CaptureFragment";
     private static final int REQUEST_VIDEO_PERMISSIONS = 1;
     private static final String FRAGMENT_DIALOG = "dialog";
 
@@ -92,7 +87,7 @@ public class CaptureFragment extends Fragment implements View.OnClickListener, A
     /**
      * Button to record video
      */
-    private FloatingActionButton mButtonVideo;
+    private ImageButton mButtonVideo;
 
     /**
      * A reference to the opened {@link android.hardware.camera2.CameraDevice}.
@@ -295,8 +290,10 @@ public class CaptureFragment extends Fragment implements View.OnClickListener, A
 
     @Override
     public void onClick(View view) {
+        Log.v("in onclick","ye");
         switch (view.getId()) {
             case R.id.video: {
+                Log.v("video button","ive been smashed");
                 if (mIsRecordingVideo) {
                     stopRecordingVideo();
                 } else {
@@ -393,6 +390,7 @@ public class CaptureFragment extends Fragment implements View.OnClickListener, A
      */
     @SuppressWarnings("MissingPermission")
     private void openCamera(int width, int height) {
+        Log.v("in openCamera","ye");
         if (!hasPermissionsGranted(VIDEO_PERMISSIONS)) {
             requestVideoPermissions();
             return;
@@ -407,7 +405,7 @@ public class CaptureFragment extends Fragment implements View.OnClickListener, A
             if (!mCameraOpenCloseLock.tryAcquire(2500, TimeUnit.MILLISECONDS)) {
                 throw new RuntimeException("Time out waiting to lock camera opening.");
             }
-            String cameraId = manager.getCameraIdList()[0];
+            String cameraId = manager.getCameraIdList()[1];
 
             // Choose the sizes for camera preview and video recording
             CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraId);
@@ -466,6 +464,7 @@ public class CaptureFragment extends Fragment implements View.OnClickListener, A
      * Start the camera preview.
      */
     private void startPreview() {
+        Log.v("in startpreview","ye");
         if (null == mCameraDevice || !mTextureView.isAvailable() || null == mPreviewSize) {
             return;
         }
@@ -505,6 +504,7 @@ public class CaptureFragment extends Fragment implements View.OnClickListener, A
      * Update the camera preview. {@link #startPreview()} needs to be called in advance.
      */
     private void updatePreview() {
+        Log.v("in updatepreview","ye");
         if (null == mCameraDevice) {
             return;
         }
@@ -589,6 +589,7 @@ public class CaptureFragment extends Fragment implements View.OnClickListener, A
     }
 
     private void startRecordingVideo() {
+        Log.v("in startrecording","ye");
         if (null == mCameraDevice || !mTextureView.isAvailable() || null == mPreviewSize) {
             return;
         }
@@ -739,78 +740,4 @@ public class CaptureFragment extends Fragment implements View.OnClickListener, A
 
     }
 
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private OnFragmentInteractionListener mListener;
-
-    public CaptureFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CaptureFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CaptureFragment newInstance(String param1, String param2) {
-        CaptureFragment fragment = new CaptureFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
 }
